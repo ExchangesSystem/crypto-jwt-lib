@@ -30,10 +30,10 @@
           "name": "crypto-jwt-lib-1.0.0.jar",
           "url": "crypto-jwt-lib-1.0.0.jar",
           "size": 50743,
-          "sha512": "88452a9d9ff9e12cf987c977a3305fb00552d287294c4b9d112840999cbd99481ba4e5295c47cc4a2c794933e1f7f2f3e88b7ed1e5d8fa50b2f435c6d1d34cf8",
-          "sha256": "58988c4b5a0de6d48c8c3216c1fe55aa816c79f3ceb173e63fcdb6e395022774",
-          "sha1": "7788ab77b598ad3ac53d1bf4b1b15ebe4c275430",
-          "md5": "154ebefd0b707307a6f26d92fb51e10e"
+          "sha512": "a49987f1584c00171dfe98d8f2ab5b58616b0346c6b052986c755685e50bd8129b6300cf92d4eaa564406649a0a5ac71d45ed5e600cfebd563d13d782e63d270",
+          "sha256": "acde55d4d76ada99bdb2d088a1c78eee7f68e6414cf5e543eeeadcf5e2d18ac2",
+          "sha1": "5a24270302184872ebd497cd88e6356b2e1f3af2",
+          "md5": "5da7a8bea0de079d4b5c31e67cd25dfb"
         }
       ]
     },
@@ -133,10 +133,10 @@
           "name": "crypto-jwt-lib-1.0.0.jar",
           "url": "crypto-jwt-lib-1.0.0.jar",
           "size": 50743,
-          "sha512": "88452a9d9ff9e12cf987c977a3305fb00552d287294c4b9d112840999cbd99481ba4e5295c47cc4a2c794933e1f7f2f3e88b7ed1e5d8fa50b2f435c6d1d34cf8",
-          "sha256": "58988c4b5a0de6d48c8c3216c1fe55aa816c79f3ceb173e63fcdb6e395022774",
-          "sha1": "7788ab77b598ad3ac53d1bf4b1b15ebe4c275430",
-          "md5": "154ebefd0b707307a6f26d92fb51e10e"
+          "sha512": "a49987f1584c00171dfe98d8f2ab5b58616b0346c6b052986c755685e50bd8129b6300cf92d4eaa564406649a0a5ac71d45ed5e600cfebd563d13d782e63d270",
+          "sha256": "acde55d4d76ada99bdb2d088a1c78eee7f68e6414cf5e543eeeadcf5e2d18ac2",
+          "sha1": "5a24270302184872ebd497cd88e6356b2e1f3af2",
+          "md5": "5da7a8bea0de079d4b5c31e67cd25dfb"
         }
       ]
     }
