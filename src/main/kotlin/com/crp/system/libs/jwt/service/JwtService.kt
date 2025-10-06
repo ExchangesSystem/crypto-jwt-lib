@@ -178,6 +178,7 @@ class JwtService(
         }
     }
 
+    @JvmName("extractCustomDataFromToken")
     inline fun <reified T> extractCustomData(token: String): T? {
         try {
             // Parse the JWT token to get the payload
@@ -193,6 +194,7 @@ class JwtService(
         }
     }
 
+    @JvmName("extractCustomDataFromHeader")
     inline fun <reified T> extractCustomData(authHeader: String?): T? {
         if (authHeader.isNull() || !authHeader!!.startsWith("${AuthServerInterceptor.BEARER} ")) {
             return null
