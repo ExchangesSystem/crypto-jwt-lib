@@ -3,12 +3,12 @@ package com.crp.system.libs.jwt.service
 import com.crp.system.libs.jwt.GrpcJwtProperties
 import com.crp.system.libs.jwt.data.JWTTokenData
 import com.crp.system.libs.jwt.data.toJWTTokenData
-import com.crp.system.libs.jwt.data.toTokenData
 import com.crp.system.libs.jwt.interceptor.AuthServerInterceptor
 import com.crp.system.libs.jwt.service.dto.JwtData
 import com.crp.system.libs.jwt.service.dto.JwtMetadata
 import com.crp.system.libs.jwt.service.dto.JwtToken
 import com.crp.system.libs.jwt.utils.extensions.isNull
+import com.crp.system.libs.jwt.utils.extensions.toTokenData
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import com.google.gson.Gson
