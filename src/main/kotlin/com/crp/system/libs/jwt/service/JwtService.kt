@@ -3,6 +3,7 @@ package com.crp.system.libs.jwt.service
 import com.crp.system.libs.jwt.GrpcJwtProperties
 import com.crp.system.libs.jwt.data.JWTTokenData
 import com.crp.system.libs.jwt.data.toJWTTokenData
+import com.crp.system.libs.jwt.data.toTokenData
 import com.crp.system.libs.jwt.interceptor.AuthServerInterceptor
 import com.crp.system.libs.jwt.service.dto.JwtData
 import com.crp.system.libs.jwt.service.dto.JwtMetadata
@@ -10,23 +11,19 @@ import com.crp.system.libs.jwt.service.dto.JwtToken
 import com.crp.system.libs.jwt.utils.extensions.isNull
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
-import io.jsonwebtoken.Claims
-import io.jsonwebtoken.ExpiredJwtException
-import io.jsonwebtoken.JwtException
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.MalformedJwtException
-import io.jsonwebtoken.UnsupportedJwtException
+import com.google.gson.Gson
+import io.jsonwebtoken.*
 import org.apache.commons.codec.digest.DigestUtils
 import org.springframework.core.env.Environment
 import java.security.SignatureException
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
-import java.util.Base64
 import java.util.stream.Collectors
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
 
+val gson = Gson()
 
 class JwtService(
     val env: Environment,
@@ -180,4 +177,37 @@ class JwtService(
             return null
         }
     }
+
+    inline fun <reified T> extractCustomData(token: String): T? {
+        try {
+            // Parse the JWT token to get the payload
+            val jwtBody = extractAllClaims(token)
+
+            // Get the subject which contains the JWT token data
+            val tokenDataJson = jwtBody?.subject
+
+            // Convert the JSON string to JWTTokenData object
+            return tokenDataJson?.toTokenData()
+        } catch (e: Exception) {
+            return null
+        }
+    }
+
+    inline fun <reified T> extractCustomData(authHeader: String?): T? {
+        if (authHeader.isNull() || !authHeader!!.startsWith("${AuthServerInterceptor.BEARER} ")) {
+            return null
+        }
+
+        try {
+            val token = authHeader.split("${AuthServerInterceptor.BEARER} ") // Remove "Bearer " prefix
+            if (token.size < 2) {
+                return null
+            }
+            // Parse the JWT token to get the payload
+            return extractCustomData(token[1])
+        } catch (e: Exception) {
+            return null
+        }
+    }
+
 }
