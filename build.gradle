@@ -60,11 +60,52 @@ tasks.withType(KotlinCompile) {
     }
 }
 
-// JitPack publication
+// GitHub Packages publication
 publishing {
     publications {
         maven(MavenPublication) {
             from components.java
+            
+            groupId = 'com.github.kostasfilios'
+            artifactId = 'crypto-jwt-lib'
+            version = project.version
+            
+            pom {
+                name = 'Crypto JWT Library'
+                description = 'JWT token generation, validation and management library for CRP system'
+                url = 'https://github.com/ExchangesSystem/crypto-jwt-lib'
+                
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                
+                developers {
+                    developer {
+                        id = 'kostasfilios'
+                        name = 'Konstantinos Filios'
+                    }
+                }
+                
+                scm {
+                    connection = 'scm:git:git://github.com/ExchangesSystem/crypto-jwt-lib.git'
+                    developerConnection = 'scm:git:ssh://github.com/ExchangesSystem/crypto-jwt-lib.git'
+                    url = 'https://github.com/ExchangesSystem/crypto-jwt-lib'
+                }
+            }
+        }
+    }
+    
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/ExchangesSystem/crypto-jwt-lib"
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
